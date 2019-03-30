@@ -27,4 +27,17 @@ class ContactController extends Controller
 
         return $contact;
     }
+
+    public function destroy(Contact $contact)
+    {
+        $contact->delete();
+
+        return $this->respondSuccess(null);
+    }
+
+
+    protected function respondSuccess($data, $statusCode = 200, $headers = [])
+    {
+        return response()->json($data, $statusCode, $headers);
+    }
 }
