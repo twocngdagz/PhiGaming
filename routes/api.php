@@ -17,4 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('contacts', 'ContactController@store');
+Route::resource('contacts', 'ContactController', [
+    'except' => [
+        'create', 'edit'
+    ]
+]);
