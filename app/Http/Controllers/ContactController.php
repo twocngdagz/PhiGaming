@@ -20,4 +20,11 @@ class ContactController extends Controller
             'zip' => $request->input('zip'),
         ]);
     }
+
+    public function update(ContactRequest $request, Contact $contact)
+    {
+        $contact->update($request->all());
+
+        return $contact;
+    }
 }
